@@ -6,8 +6,8 @@
 -
  
   # Hosts: where our play will run and options it will run with
-  hosts: centos
-  user: root
+  hosts: database_Fedora
+  become: True
 
   # Vars: variables that will apply to the play, on all target systems
 

@@ -18,8 +18,8 @@
 
              {% if ansible_hostname == "ubuntu-c" -%}
                 This is ubuntu-c
-             {% elif ansible_hostname == "centos1" -%}
-                This is centos1 with it's modified SSH Port
+             {% elif ansible_hostname == "web" -%}
+                This is web with it's modified SSH Port
              {% endif %}
 
 # Three dots indicate the end of a YAML document

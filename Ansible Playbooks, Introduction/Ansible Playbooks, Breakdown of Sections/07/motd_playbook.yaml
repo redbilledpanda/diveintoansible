@@ -6,23 +6,24 @@
 -
  
   # Hosts: where our play will run and options it will run with
-  hosts: linux
+  hosts: all
+  become: True
  
   # Vars: variables that will apply to the play, on all target systems
   vars:
-    motd_centos: "Welcome to CentOS Linux - Ansible Rocks\n"
+    motd_centos: "Welcome to Fedora Linux - Ansible Rocks\n"
     motd_ubuntu: "Welcome to Ubuntu Linux - Ansible Rocks\n"
  
   # Tasks: the list of tasks that will be executed within the playbook
   tasks:
-    - name: Configure a MOTD (message of the day)
+    - name: Configure a MOTD (message of the day) for Fedora
       copy:
         content: "{{ motd_centos }}"
         dest: /etc/motd
       notify: MOTD changed
-      when: ansible_distribution == "CentOS"
+      when: ansible_distribution == "Fedora"
 
-    - name: Configure a MOTD (message of the day)
+    - name: Configure a MOTD (message of the day) for Ubuntu
       copy:
         content: "{{ motd_ubuntu }}"
         dest: /etc/motd
